@@ -1,4 +1,4 @@
-<div
+<!-- <div
   v-motion
   :initial="{ opacity: 0, x: -180 }"
   :enter="{ opacity: 1, x: 25 }"
@@ -33,7 +33,6 @@
           </div>
 
 
-<!-- //ito with STAGGERING WITH FOR LOOP -->
 <ClientOnly>
       <div
         class="grid grid-cols-3 gap-6 p-10 max-w-4xl mx-auto perspective-[1000px]"
@@ -100,4 +99,12 @@ const springTransition = (delayMs) => ({
   damping: 12,
   mass: 0.8,
   delay: delayMs, // This is where the manual stagger sequencing happens
-});
+}); -->
+
+
+<script>
+</script>
+<template>
+  
+</template>
+

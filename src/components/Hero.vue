@@ -1,10 +1,5 @@
-import { NuxtLink } from '../../.nuxt/components';
 <script setup>
 import { ref, onMounted } from "vue";
-// stager
-
-//useState
-
 
 const isMounted = ref(false);
 const currentVariant = ref("initial");
@@ -16,48 +11,54 @@ onMounted(() => {
   }, 75);
 });
 
-
 const socials = [
-  { id: 1, icon: "i-simple-icons-instagram", size: "xl" }, // Uses fallback color 'neutral'
-  { id: 2, icon: "i-simple-icons-linkedin", size: "xl", color: "secondary" }, // Overrides color
+  { id: 1, icon: "i-simple-icons-instagram", size: "xl" },
+  { id: 2, icon: "i-simple-icons-linkedin", size: "xl", color: "secondary" },
   { id: 3, icon: "i-simple-icons-github", size: "xl" },
 ];
 
-const nameVarState = useState('globalName', () => 'john')
+const nameVarState = useState('globalName', () => 'john');
 
-
+onMounted(() => {
+  console.log({ windowWidth: window.innerWidth });
+});
 </script>
 
 <template>
-  <div class="flex justify-center py-20">
+  <div class="flex select-none justify-center py-20 ">
 
-    <div class="flex flex-col items-center gap-10">
-    a
-      <img
-        class="rounded-full h-24 w-24"
-        src="https://fastly.picsum.photos/id/1/200/300.jpg?hmac=jH5bDkLr6Tgy3oAg5khKCHeunZMHq0ehBZr6vGifPLY"
-        alt="Hero"
-        loading="lazy"
-      />
+    <div
+      class="flex flex-col items-center gap-10 md:border-l-[1px] md:border-l-[#353535] md:border-l-opacity-25 md:border-r-[1px] md:border-r-[#353535] md:border-r-opacity-25">
+
+      <img class="rounded-full h-24 w-24"
+        src="https://fastly.picsum.photos/id/1/200/300.jpg?hmac=jH5bDkLr6Tgy3oAg5khKCHeunZMHq0ehBZr6vGifPLY" alt="Hero"
+        loading="lazy" />
 
       <div class="max-w-3/4 text-center grid gap-8">
         <!-- NAME AND TITLE -->
 
-        <div class="px-20">
-          <h1 class="text-5xl font-bold">
+        <ClientOnly>
+        <div class="lg:px-20">
+          <!-- <h2 v-if="windowWidth > 768" class="text-2xl font-bold">About Me</h2> -->
+          <!-- <h1 class="text-5xl font-bold">
             Hey, I'm Kevin Next.js and Nuxt developer
-          </h1>
-        </div>
+          </h1> -->
+            <RevealingText text="Hey, I'm Kevin Next.js and Nuxt developer" />
+          </div>
+        </ClientOnly>
 
         <!-- PROFESSIONAL SUMMARY -->
 
-        <div class="flex items-center justify-center">
-          <p class="flex items-center text-gray-500">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, eius
-            nulla officiis incidunt nobis dicta. Nemo, facere. Officia eaque
-            distinctio
-          </p>
-        </div>
+        <ClientOnly>
+          <div v-motion-fade-visible class="flex items-center justify-center">
+            <p class="flex items-center text-[#A1A1A1]">
+              <!-- <RevealingText text="" /> NAG EEROR! KAPAG MERON NITO NAG EEROR YUNG KEVIN -->
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, eius
+              nulla officiis incidunt nobis dicta. Nemo, facere. Officia eaque
+              distinctio
+            </p>
+          </div>
+        </ClientOnly>
 
         <!-- BUTTON AND CHIP -->
 
@@ -68,21 +69,14 @@ const nameVarState = useState('globalName', () => 'john')
           <div class="flex items-center gap-">
             <BlinkingDot />
 
-            <UButton aria-disabled="true" class="text-success" variant="ghost"
-              >Open for work</UButton
-            >
+            <UButton aria-disabled="true" class="text-success" variant="ghost">Open for work</UButton>
           </div>
         </div>
         <!-- LINKS -->
 
         <div class="flex gap-4 justify-center">
-          <BtnSocials
-            v-for="social of socials"
-            :key="social.id"
-            :icon="social.icon"
-            :size="social.size"
-            :color="social.color"
-          />
+          <BtnSocials v-for="social of socials" :key="social.id" :icon="social.icon" :size="social.size"
+            :color="social.color" />
 
 
 
@@ -93,9 +87,5 @@ const nameVarState = useState('globalName', () => 'john')
     </div>
   </div>
 
-  <div
-    class="grid grid-cols-3 gap-6 p-10 max-w-4xl mx-auto perspective-[1000px]"
-  >
 
-  </div>
 </template>

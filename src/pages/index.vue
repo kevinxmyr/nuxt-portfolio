@@ -1,16 +1,22 @@
-import { UButton } from '../../.nuxt/components';
 <script setup>
-const count = ref(0);
+
 </script>
 
 <template>
-  <div class="px-28">
+  <div class="min-w-1/2 ">
     <div class="flex gap-4">
       <NavBar />
     </div>
 
-    <!-- dito ilalagay ang lahat ng stacking ng components -->
+    <!-- DITO ILALAGAY ANG MGA COMPOENENTS -->
 
     <Hero />
+
+    <!-- <Carousel /> -->
+    <Carousel />
+
+    <AboutMeContainer />
+
   </div>
+
 </template>
