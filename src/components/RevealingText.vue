@@ -1,53 +1,45 @@
-<template>
-   <!-- class name dito sa span ↙️↙️ staggered-text-container -->
-   <span class="text-5xl font-bold">
-      <span v-for="(item, index) in items" :key="index" v-motion :initial="{
-         opacity: 0,
-         y: 20,
-         filter: 'blur(10px)'
-      }" :enter="{
-         opacity: 1,
-         y: 0,
-         filter: 'blur(0px)',
-         transition: {
-            type: 'spring',
-            stiffness: 100,
-            damping: 15,
-            delay: index * staggerDelay // Dynamic stagger delay
-         }
-      }" class="inline-block">
-         <template v-if="item === ' '">&nbsp;</template>
-         <template v-else>{{ item }}</template>
-      </span>
-   </span>
-</template>
-
 <script setup>
 import { computed } from 'vue'
 
 const props = defineProps({
-   text: {
-      type: String,
-      required: true
-   },
-   // Split by 'letters' or 'words'
+   text: { type: String, required: true },
    by: {
       type: String,
       default: 'letters',
       validator: (value) => ['letters', 'words'].includes(value)
    },
-   // Delay between each element in milliseconds
-   staggerDelay: {
-      type: Number,
-      default: 25
-   }
+   staggerDelay: { type: Number, default: 50 }
 })
 
-// Split the text based on the prop configuration
+// 3. Cleaned up: Removed the trailing space concatenation.
+// Tailwind's 'gap-x' in the template handles the spaces now!
 const items = computed(() => {
    if (props.by === 'words') {
-      return props.text.split(' ').map(word => word + ' ')
+      return props.text.split(' ')
    }
    return props.text.split('')
 })
 </script>
+
+<template>
+   <!-- <span class="text-5xl font-bold flex flex-wrap justify-center text-center mx-auto gap-x-[0.25em] gap-y-2"> -->
+   <span
+      class="text-5xl font-black flex flex-wrap justify-center gap-x-[0.25em] gap-y-2 text-center mx-auto ">
+      <span v-for="(item, index) in items" :key="index" v-motion :initial="{
+         opacity: 0,
+         y: 20,
+         filter: 'blur(10px)'
+      }" :enter="{
+            opacity: 1,
+            y: 0,
+            filter: 'blur(0px)',
+            transition: {
+               type: 'spring',
+               stiffness: 100,
+               damping: 15,
+               delay: index * staggerDelay
+            }
+         }" class="inline-block whitespace-nowrap"> {{ item }}
+      </span>
+   </span>
+</template>

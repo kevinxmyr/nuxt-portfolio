@@ -21,10 +21,8 @@ defineProps({
 </script>
 
 <template>
-  <UButton
-    :icon="icon"
-    :color="color"
-    :variant="variant"
-    :size="size"
-  />
+   <UButton :icon="icon"
+            :color="color"
+            :variant="variant"
+            :size="size" />
 </template>

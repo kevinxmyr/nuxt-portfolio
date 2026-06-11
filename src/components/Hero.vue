@@ -19,42 +19,84 @@ const socials = [
 
 const nameVarState = useState('globalName', () => 'john');
 
+
+const windowWidth = ref('')
+
+const updateWidth = () => {
+  if (typeof window !== 'undefined') {
+    windowWidth.value = window.innerWidth
+  }
+}
 onMounted(() => {
-  console.log({ windowWidth: window.innerWidth });
-});
+  updateWidth() // Set initial client-side width
+  window.addEventListener('resize', updateWidth)
+})
+onUnmounted(() => {
+  window.removeEventListener('resize', updateWidth)
+})
+
+
 </script>
 
 <template>
-  <div class="flex select-none justify-center py-20 ">
-
+  <div name="hero" class="flex select-none justify-center py-20 ">
+<!-- lg:border-l lg:border-l-[#353535] lg:border-l-opacity-25 lg:border-r lg:border-r-[#353535] md:border-r-opacity-25 -->
     <div
-      class="flex flex-col items-center gap-10 md:border-l-[1px] md:border-l-[#353535] md:border-l-opacity-25 md:border-r-[1px] md:border-r-[#353535] md:border-r-opacity-25">
-
-      <img class="rounded-full h-24 w-24"
+      class="flex flex-col items-center gap-10 ">
+      <img v-motion :initial="{
+        opacity: 0,
+        y: 20,
+        filter: 'blur(20px)'
+      }" :enter="{
+        opacity: 1,
+        y: 0,
+        filter: 'blur(0px)',
+        transition: {
+          type: 'spring',
+          stiffness: 100, // High stiffness gives it punch
+          damping: 15, // Low damping allows a beautiful elastic wobble
+          mass: 0.8, // Lighter mass makes it snappy
+          delay: 40
+        },
+      }" class="rounded-full h-24 w-24"
         src="https://fastly.picsum.photos/id/1/200/300.jpg?hmac=jH5bDkLr6Tgy3oAg5khKCHeunZMHq0ehBZr6vGifPLY" alt="Hero"
         loading="lazy" />
 
-      <div class="max-w-3/4 text-center grid gap-8">
+      <div class="text-center grid gap-8">
         <!-- NAME AND TITLE -->
 
         <ClientOnly>
-        <div class="lg:px-20">
-          <!-- <h2 v-if="windowWidth > 768" class="text-2xl font-bold">About Me</h2> -->
-          <!-- <h1 class="text-5xl font-bold">
-            Hey, I'm Kevin Next.js and Nuxt developer
-          </h1> -->
-            <RevealingText text="Hey, I'm Kevin Next.js and Nuxt developer" />
+          <div class="">
+            <div class="max-w-xl mx-auto capitalize px-6 md:px-0">
+              <RevealingText text="Hey, I'm kevin, Next.js & Nuxt developer" by="words" />
+              <!-- {{ nameVarState }} -->
+              <!-- {{ windowWidth }} -->
+            </div>
           </div>
         </ClientOnly>
 
         <!-- PROFESSIONAL SUMMARY -->
 
         <ClientOnly>
-          <div v-motion-fade-visible class="flex items-center justify-center">
+          <div v-motion :initial="{
+            opacity: 0,
+            y: 20,
+            filter: 'blur(20px)'
+          }" :enter="{
+            opacity: 1,
+            y: 0,
+            filter: 'blur(0px)',
+            transition: {
+              type: 'spring',
+              stiffness: 100,
+              damping: 15,
+              delay: index * staggerDelay
+            }
+          }" class="flex items-center justify-center max-w-2/3 text-center mx-auto">
             <p class="flex items-center text-[#A1A1A1]">
               <!-- <RevealingText text="" /> NAG EEROR! KAPAG MERON NITO NAG EEROR YUNG KEVIN -->
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, eius
-              nulla officiis incidunt nobis dicta. Nemo, facere. Officia eaque
+e. Officia eaque
               distinctio
             </p>
           </div>
@@ -62,25 +104,23 @@ onMounted(() => {
 
         <!-- BUTTON AND CHIP -->
 
-        <div class="flex justify-center-safe items-center gap-6">
-          <NuxtLink to="/">
+        <div v-motion :initial="{ opacity: 0, filter: 'blur(5px)' }" :enter="{ opacity: 1, filter: 'blur(0px)', transition: { delay: 500 } }" :leave="{y: -20}"
+          class="flex justify-center-safe items-center gap-6">
+
+          <NuxtLink to="/projects">
             <UButton color="neutral">View Projects</UButton>
           </NuxtLink>
           <div class="flex items-center gap-">
             <BlinkingDot />
-
             <UButton aria-disabled="true" class="text-success" variant="ghost">Open for work</UButton>
           </div>
         </div>
         <!-- LINKS -->
 
-        <div class="flex gap-4 justify-center">
-          <BtnSocials v-for="social of socials" :key="social.id" :icon="social.icon" :size="social.size"
-            :color="social.color" />
-
-
-
-
+        <div name="social media links" class="flex gap-4 justify-center">
+          <BtnSocials v-for="(social, index) of socials" :key="social.id" :icon="social.icon" :size="social.size"
+            :color="social.color" v-motion :initial="{ opacity: 0, y: 20 }"
+            :enter="{ opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 15, delay: 350 + (index * 50) } }" />
         </div>
         <!-- SOCIALS END -->
       </div>

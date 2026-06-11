@@ -1,13 +1,14 @@
 @import "tailwindcss";
 @import "@nuxt/ui";
 
-
 @layer base {
-   .dark {
-      /* --ui-bg: #0d1117; */
-      --ui-bg: rgb(23, 23, 23);
-      --ui-text: #f0f6fc;
-
-   }
+  .dark {
+    /* --ui-bg: #0d1117; */
+    --ui-bg: rgb(23, 23, 23);
+    --ui-text: #f0f6fc;
+  }
 }
 
+@theme {
+  --font-sans: "Public Sans", sans-serif;
+}

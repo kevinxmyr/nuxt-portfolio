@@ -1,12 +1,11 @@
+import { Footer } from '../../.nuxt/components';
 <script setup>
 
 </script>
 
 <template>
-  <div class="min-w-1/2 ">
-    <div class="flex gap-4">
-      <NavBar />
-    </div>
+
+  <div class="">
 
     <!-- DITO ILALAGAY ANG MGA COMPOENENTS -->
 
@@ -16,6 +15,10 @@
     <Carousel />
 
     <AboutMeContainer />
+
+    <Certifications />
+
+    <!-- <Footer /> NILIPAT SA APP.VUE-->
 
   </div>
 

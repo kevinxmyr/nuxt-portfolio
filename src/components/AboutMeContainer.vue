@@ -1,6 +1,26 @@
+<script setup>
+
+const experiences = [
+   {
+      year: "2020 - 2026",
+      position: "brand designer"
+   },
+   {
+      year: "2017 - 2020",
+      position: "web developer"
+   },
+   {
+      year: "2010 - 2015",
+      position: "Full Stack Developer"
+   },
+]
+
+
+</script>
+
 <template>
 
-   <div class="space-y-6 space-x-4 px-8 mt-20 mb-50">
+   <div class="space-y-6 space-x-4 px-8 mt-28 mb-24 whitespace-pre-wrap max-w-225 mx-auto lg:grid lg:grid-cols-2 lg:gap-10">
 
       <div>
          <h2 class="capitalize font-bold mb-4 font-public">about me</h2>
@@ -13,27 +33,16 @@
          </p>
       </div>
 
-
       <div class="capitalize">
-         <h2 class="capitalize font-bold mb-4">Work experience</h2>
+         <h2 class="font-bold mb-4">Work experience</h2>
 
+         <!-- Single wrapper for shared text colors and sizes -->
          <div class="text-[#A1A1A1] text-sm">
-            <div class="flex justify-between">
-               <p>2020 - 2026</p>
-               <p>—</p>
-               <p>brand designer</p>
+            <div v-for="(exp, index) in experiences" :key="index" class="flex w-full justify-between items-center">
+               <p>{{ exp.year }}</p>
+               <hr class="grow border-t border-[#A1A1A1] px-2 opacity-25 mx-2">
+               <p>{{ exp.position }}</p>
             </div>
-            <div class="flex justify-between ">
-               <p>2017 - 2020</p>
-               <p>—</p>
-               <p>web developer</p>
-            </div>
-            <div class="flex justify-between ">
-               <p>2010 - 2015</p>
-               <p>—</p>
-               <p>Full Stack Developer<span class="text-[#A1A1A1]"></span></p>
-            </div>
-
          </div>
       </div>
 
@@ -41,13 +50,3 @@
 
 
 </template>
-
-
-
-<script>
-export default {
-   name: 'AboutMeContainer'
-}
-const st = 'As a UX/UI designer and front-end developer with 6 years of experience, I leverage my Boston University Interactive Design degree to craft user-centered digital experiences. My approach blends creative strategy with technical expertise, transforming concepts into functional, purposeful digital products that seamlessly integrate design and technology.'
-console.log(st.split(" ").length)
-</script>

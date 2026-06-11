@@ -15,7 +15,7 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     // Keys inside here are PRIVATE and only available on the server
-    apiSecret: "sikreto-pribado",
+    apiSecret: process.env.API_SECRET,
 
     // Keys inside "public" are available on both server AND client (browser)
     public: {
@@ -23,5 +23,5 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["@nuxt/ui", "@nuxt/content", "@vueuse/motion/nuxt"],
+  modules: ["@nuxt/ui", "@nuxt/content", "@vueuse/motion/nuxt", "@nuxt/image", "@nuxt/fonts"],
 });
