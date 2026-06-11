@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 // useFetch will automatically send the cookie up to the server
 // on layout load
 
@@ -32,4 +32,4 @@ if (error.value || !user.value) {
       <p>Loading your profile...</p>
     </div>
   </div>
-</template>
+</template> -->
