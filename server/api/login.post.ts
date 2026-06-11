@@ -43,3 +43,7 @@
 
 //   return { success: true, message: 'Logged in successfully!' };
 // });
+
+export default defineEventHandler(async (event) => {
+  return {name: 'John AppleSeed', role: 'admin'}
+})
