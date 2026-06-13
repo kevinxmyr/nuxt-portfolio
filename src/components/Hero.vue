@@ -139,11 +139,13 @@ onUnmounted(() => {
                 delay: index * staggerDelay,
               },
             }"
-            class="flex items-center justify-center max-w-2/3 text-center mx-auto">
+            class="flex items-center justify-center text-center mx-auto
+            max-w-md lg:max-w-2xl box-border whitespace-pre-wrap
+
+            ">
             <p class="flex items-center text-[#A1A1A1]">
               <!-- <RevealingText text="" /> NAG EEROR! KAPAG MERON NITO NAG EEROR YUNG KEVIN -->
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa,
-              eius e. Officia eaque distinctio
+              Full-Stack Engineer specialized in crafting modern web applications using Next.js and React. From designing responsive UIs with Tailwind CSS to architecting secure REST/GraphQL APIs and databases, I build production-ready digital products from scratch. Focused on performance, SEO, and flawless user experiences.
             </p>
           </div>
         </ClientOnly>

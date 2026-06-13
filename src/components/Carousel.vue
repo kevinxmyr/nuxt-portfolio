@@ -1,17 +1,17 @@
 <script setup>
 const pics = [
-   "/run.JPG",
-   "/drone.JPG",
-   "/keyboard.JPG",
-   "/nightsky.JPG",
-   "/kimm.png",
-   "/kevin.JPG",
-   // "https://picsum.photos/468/468?random=13",
-   // "https://picsum.photos/468/468?random=24",
-   // "https://picsum.photos/468/468?random=35",
-   // "https://picsum.photos/468/468?random=40",
-   // "https://picsum.photos/468/468?random=20",
-   // "https://picsum.photos/468/468?random=10",
+   // "/run.JPG",
+   // "/drone.JPG",
+   // "/keyboard.JPG",
+   // "/nightsky.JPG",
+   // "/kimm.png",
+   // "/kevin.JPG",
+   "https://picsum.photos/468/468?random=13",
+   "https://picsum.photos/468/468?random=24",
+   "https://picsum.photos/468/468?random=35",
+   "https://picsum.photos/468/468?random=40",
+   "https://picsum.photos/468/468?random=20",
+   "https://picsum.photos/468/468?random=10",
 ];
 </script>
 

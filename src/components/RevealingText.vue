@@ -24,7 +24,7 @@ const items = computed(() => {
 <template>
    <!-- <span class="text-5xl font-bold flex flex-wrap justify-center text-center mx-auto gap-x-[0.25em] gap-y-2"> -->
    <span
-      class=" leading-10 text-3xl p-2 md:p-0 md:text-5xl font-bold flex flex-wrap justify-center gap-x-[0.25em] gap-y-2 text-center mx-auto ">
+      class="leading-8 text-4xl md:leading-10 p-2 md:p-0 md:text-5xl font-bold flex flex-wrap justify-center gap-x-[0.25em] gap-y-2 text-center mx-auto ">
       <span v-for="(item, index) in items" :key="index" v-motion :initial="{
          opacity: 0,
          y: 20,
