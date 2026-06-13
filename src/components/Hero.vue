@@ -98,7 +98,7 @@ onUnmounted(() => {
             },
           }"
           class="w-20 h-20 rounded-full object-cover"
-          src="/kevin.jpg"
+          src="/kevin.JPG"
           alt="Kimberly Tadus <3"
           loading="lazy" />
       </div>

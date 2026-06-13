@@ -125,7 +125,7 @@ const animationvariant = "";
               class="relative w-full aspect-square overflow-hidden bg-gray-50 border border-gray-100 flex items-center justify-center">
               <NuxtImg
                 class="object-cover w-full h-full"
-                src="/kevin.jpg"
+                src="/kevin.JPG"
                 alt="kev2" />
             </div>
             <div
