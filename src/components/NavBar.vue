@@ -3,8 +3,8 @@ import { useRoute } from 'vue-router';
 import {ref, watch} from 'vue'
 const navList = [
   { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
   { name: 'Projects', path: '/projects' },
+  { name: 'About', path: '/about' },
   { name: 'Contact', path: '/contact' },
 ]
 

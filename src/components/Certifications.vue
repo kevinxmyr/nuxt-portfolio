@@ -71,7 +71,7 @@ const pdfurl =
     <h2 class="font-bold text-lg capitalize">certifications</h2>
     <ul class="mt-4 space-y-10">
       <li
-        v-motion
+        v-motion.once
         :initial="{
           opacity: 0,
           y: 20,
@@ -81,17 +81,24 @@ const pdfurl =
           opacity: 1,
           y: 0,
           filter: 'blur(0px)',
-          transition: {
-            type: 'spring',
-            stiffness: 100, // High stiffness gives it punch
-            damping: 15, // Low damping allows a beautiful elastic wobble
-            mass: 0.8, // Lighter mass makes it snappy
-            delay: 40,
-          },
+          // transition: {
+          //   type: 'spring',
+          //   stiffness: 100, // High stiffness gives it punch
+          //   damping: 15, // Low damping allows a beautiful elastic wobble
+          //   mass: 0.8, // Lighter mass makes it snappy
+          //   delay: 40,
+          // },
+        }"
+        :transition="{
+          delay: 15,
+          type: 'spring',
+          stiffness: 100,
+          damping: 15,
+          mass: 0.8,
         }"
         v-for="cert in certifications"
         :key="cert.id"
-        class="space-y-2 hover:cursor-pointer">
+        class="space-y-2 hover:cursor-pointer group">
         <h3 class="font-bold">{{ cert.title }}</h3>
         <p class="text-[#A1A1A1] text-sm">
           {{ cert.issuer }} • {{ cert.instructor }} • {{ cert.year }}
@@ -100,9 +107,12 @@ const pdfurl =
         <a
           :href="cert.image"
           target="_blank"
-          class="text-sm text-secondary hover:underline"
-          >View Certificate</a
-        >
+          class="text-sm text-secondary hover:underline flex items-center"
+          >View Certificate
+          <Icon
+            name="akar-icons:arrow-right"
+            class="opacity-0 group-hover:opacity-100 hover:display group-hover:translate-x-2 transition-all duration-300"
+        /></a>
       </li>
     </ul>
   </section>
@@ -117,7 +127,7 @@ const pdfurl =
         y: 0,
         opacity: 1,
         filter: 'blur(0px)',
-        transition: { duration: 500  },
+        transition: { duration: 500 },
       }"
       class="font-bold text-lg capitalize">
       Non-IT Certifications
@@ -134,7 +144,7 @@ const pdfurl =
         }"
         v-for="(nonIT, index) in nonITList"
         :key="nonIT.id"
-        class="space-y-2">
+        class="space-y-2 group hover:cursor-pointer">
         <h3 class="font-bold">{{ nonIT.title }}</h3>
         <p class="text-[#A1A1A1] text-sm">
           {{ nonIT.issuer }} • {{ nonIT.instructor }} • {{ nonIT.year }}
@@ -143,9 +153,14 @@ const pdfurl =
         <a
           :href="nonIT.image"
           target="_blank"
-          class="text-sm text-secondary hover:underline"
-          >View Certificate</a
-        >
+          class="text-sm text-secondary hover:underline flex items-center"
+          >View Certificate
+          <Icon
+            name="akar-icons:arrow-right"
+            class="opacity-0 group-hover:opacity-100 hover:display group-hover:translate-x-2 transition-all duration-300" />
+        </a>
+
+        <!-- style="color: #5182FF; margin-left: 5px; border: solid; " -->
       </li>
     </ul>
   </section>

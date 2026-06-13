@@ -5,6 +5,9 @@ export default defineNuxtConfig({
   compatibilityDate: "2024-11-01", // or similar date
   devtools: { enabled: true },
   srcDir: "src/",
+  future: {
+    compatibilityVersion: 4,
+  },
   css: ["./app/assets/css/main.css"],
   vite: {
     optimizeDeps: {
@@ -22,6 +25,10 @@ export default defineNuxtConfig({
       publiko: "sicreto-publico", // Nuxt automatically populates this from NUXT_PUBLIC_API_BASE_URL
     },
   },
-
+  colorMode: {
+    preference: "dark", // default value
+    fallback: "dark",
+    classSuffix: '',
+  },
   modules: ["@nuxt/ui", "@nuxt/content", "@vueuse/motion/nuxt", "@nuxt/image", "@nuxt/fonts"],
 });

@@ -1,11 +1,17 @@
 <script setup>
 const pics = [
-   "https://picsum.photos/468/468?random=13",
-   "https://picsum.photos/468/468?random=24",
-   "https://picsum.photos/468/468?random=35",
-   "https://picsum.photos/468/468?random=40",
-   "https://picsum.photos/468/468?random=20",
-   "https://picsum.photos/468/468?random=10",
+   "/run.JPG",
+   "/drone.JPG",
+   "/keyboard.JPG",
+   "/nightsky.JPG",
+   "/kimm.png",
+   "/kevin.JPG",
+   // "https://picsum.photos/468/468?random=13",
+   // "https://picsum.photos/468/468?random=24",
+   // "https://picsum.photos/468/468?random=35",
+   // "https://picsum.photos/468/468?random=40",
+   // "https://picsum.photos/468/468?random=20",
+   // "https://picsum.photos/468/468?random=10",
 ];
 </script>
 
@@ -20,10 +26,14 @@ const pics = [
          v-slot="{ item, index }"
          :auto-scroll="{ speed: 0.35, }"
          :items="pics"
-         :ui="{ item: 'basis-[237px]', container: '' }" >
+         indicators
+         :ui="{ item: 'basis-[237px]', container: '' }"
+         class="rounded-lg w-full overflow-hidden"
+         >
          <div class="m-2">
-            <img :src="item" width="237" height="237" alt="Carouselimage" :class="[
-               'rounded-lg',
+            <img :src="item" width="237" height="237" alt="CarouselImages" :class="[
+               'rounded-lg', 'aspect-square', 'object-cover',
+               item === '/run.JPG' &&  'object-top',
                index % 2 === 0 ? 'rotate-3' : '-rotate-3',
             ]" loading="lazy" />
          </div>

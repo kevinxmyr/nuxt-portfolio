@@ -3,12 +3,18 @@
 
 @layer base {
   .dark {
-    /* --ui-bg: #0d1117; */
-    --ui-bg: rgb(23, 23, 23);
-    --ui-text: #f0f6fc;
+    --ui-bg: #171717;
+    /* --ui-text: #f0f6fc; */
+    --ui-text: #f4f4f4;
   }
 }
 
 @theme {
   --font-sans: "Public Sans", sans-serif;
+}
+
+:root.dark, .dark {
+  --ui-bg: #171717;
+    /* --ui-text: #f0f6fc; */
+    --ui-text: #f4f4f4;
 }
